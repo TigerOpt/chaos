@@ -1,6 +1,7 @@
 package com.example.algorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -330,6 +331,27 @@ public class Soluution {
         }
         
         return new ArrayList<>();
+    }
+
+    public static int findBestValue(int[] arr, int target) {
+      
+        // Replace this placeholder return statement with your code
+        int size = arr.length;
+        Arrays.sort(arr);
+        int mod = target % size;
+        int v = mod > (size / 2) ? target / size + 1 : target / size;
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] <= v) {
+                sum += arr[i];
+            } else {
+                if (Math.abs(target - (sum + arr[i])) < Math.abs(target - (sum + v))) {
+                    v = arr[i];                    
+                }
+                break;
+            }
+        }
+        return v;
     }
 
     public static void main(String[] args) {

@@ -7,6 +7,7 @@ public class DemoThreadUnsafe {
 
     public static void main(String args[]) throws InterruptedException {
 
+
         // create object of unsafe counter
         ThreadUnsafeCounter badCounter = new ThreadUnsafeCounter();
 
